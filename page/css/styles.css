@@ -1,0 +1,294 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+body {
+    font-family: "Lato", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(140deg, #e2e2e2, #cdcdcd);
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+.sidebar {
+    width: 5%;
+    background-color: linear-gradient(140deg, #e2e2e2, #cdcdcd);
+    height: calc(100vh - 130px);
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+  }
+.main_title {
+    text-align: center;
+    color: #fff;
+}
+
+#map {
+    height: calc(100vh - 130px);
+    border-radius: 15px; /* Bordes redondos */
+    overflow: hidden; /* Asegura que el contenido del mapa no se desborde */
+}
+
+select, input {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+/* Estilo para mantener la estructura flexbox y la alineación */
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.map-container {
+    width: 30%;
+    height: calc(100vh - 130px);
+    padding: 10px;
+}
+
+.controls-container {
+    width: 70%;
+    padding: 10px;
+    height: auto;
+    display: flex;
+    overflow: auto;
+    flex-direction: column;
+    justify-content: flex-start; /* Alinea los elementos al inicio */
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.dropdown {
+    position: relative;
+    width: 80%;
+    filter: url(#goo);
+    margin-bottom: -120px; /* Espacio entre el dropdown y el slider */
+    transition: margin-bottom 0.6s ease;
+  }
+  
+.dropdown__face,
+.dropdown__items {
+background-color: #fff;
+padding: 20px;
+border-radius: 25px;
+}
+
+.dropdown__face {
+display: block;
+position: relative;
+cursor: pointer;
+}
+
+.dropdown__items {
+margin: 0;
+position: absolute;
+right: 0;
+top: 50%;
+width: 100%;
+list-style: none;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+visibility: hidden;
+z-index: -1;
+opacity: 0;
+transition: all 0.4s cubic-bezier(0.93, 0.88, 0.1, 0.8);
+}
+
+.dropdown__items::before {
+content: "";
+background-color: #fff;
+position: absolute;
+bottom: 100%;
+right: 20%;
+height: 40px;
+width: 20px;
+}
+
+.dropdown__arrow {
+border-bottom: 2px solid #000;
+border-right: 2px solid #000;
+position: absolute;
+top: 50%;
+right: 30px;
+width: 10px;
+height: 10px;
+transform: rotate(45deg) translateY(-50%);
+transform-origin: right;
+}
+
+.dropdown input {
+display: none;
+}
+
+.dropdown input:checked ~ .dropdown__items {
+top: calc(100% + 25px);
+visibility: visible;
+opacity: 1;
+}
+
+.dropdown__items li {
+padding: 10px;
+cursor: pointer;
+text-align: center;
+}
+
+.dropdown__items li:hover {
+background-color: #f0f0f0;
+border-radius: 20px;
+}
+
+/* Estilos adicionales para el cuerpo (opcional) */
+.dropdown svg {
+    display: none;
+}
+  
+
+
+
+
+.output {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    overflow-x: hidden;
+    overflow-y: auto;
+    border: 1px solid #ccc; /* Borde opcional para mejor visualización */
+}
+
+/* Contenedor de la tabla */
+.table-container {
+    width: 100%; /* Ocupa todo el ancho del contenedor padre */
+    max-height: calc(100vh - 350px); /* Altura máxima para el contenedor */
+    overflow-y: auto; /* Barra de desplazamiento vertical cuando sea necesario */
+    overflow-x: hidden; /* Oculta la barra de desplazamiento horizontal */
+    padding: 10px;
+}
+
+/* Estilos para la tabla */
+table {
+    width: 100%; /* La tabla ocupa todo el ancho del contenedor */
+    border-collapse: collapse; /* Elimina el espacio entre celdas */
+    table-layout: fixed; /* Fija el ancho de las columnas */
+}
+
+th, td {
+    border: 1px solid #ddd; /* Borde de las celdas */
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2; /* Color de fondo para las celdas de encabezado */
+    position: sticky; /* Hace que los encabezados se queden fijos al hacer scroll */
+    top: 0; /* Fija los encabezados en la parte superior */
+    z-index: 1; /* Asegura que los encabezados estén por encima del contenido */
+}
+
+
+.wrapper{
+    position: relative;
+    width: 95vmin;
+    background-color: #ffffff;
+    padding: 50px 40px 20px 40px;
+    border-radius: 10px;
+}
+.container2{
+    position: relative;
+    width: 100%;
+    height: 100px;
+    margin-top: 30px;
+}
+input[type="range"]{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    outline: none;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    background-color: transparent;
+    pointer-events: none;
+}
+.slider-track{
+    width: 100%;
+    height: 5px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    border-radius: 5px;
+}
+input[type="range"]::-webkit-slider-runnable-track{
+    -webkit-appearance: none;
+    height: 5px;
+}
+input[type="range"]::-moz-range-track{
+    -moz-appearance: none;
+    height: 5px;
+}
+input[type="range"]::-ms-track{
+    appearance: none;
+    height: 5px;
+}
+input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    height: 1.7em;
+    width: 1.7em;
+    background-color: #3264fe;
+    cursor: pointer;
+    margin-top: -9px;
+    pointer-events: auto;
+    border-radius: 50%;
+}
+input[type="range"]::-moz-range-thumb{
+    -webkit-appearance: none;
+    appearance: none;
+    height: 1.7em;
+    width: 1.7em;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #3264fe;
+    pointer-events: auto;
+}
+input[type="range"]::-ms-thumb{
+    appearance: none;
+    height: 1.7em;
+    width: 1.7em;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #3264fe;
+    pointer-events: auto;
+}
+input[type="range"]:active::-webkit-slider-thumb{
+    background-color: #ffffff;
+    border: 3px solid #3264fe;
+}
+.values{
+    background-color: #3264fe;
+    width: 32%;
+    position: relative;
+    margin: auto;
+    padding: 10px 0;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 25px;
+    color: #ffffff;
+}
+.values:before{
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 0;
+    border-top: 15px solid #3264fe;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    margin: auto;
+    bottom: -14px;
+    left: 0;
+    right: 0;
+}
+#slider-1::-webkit-slider-thumb {
+    transform: translateX(-50%);
+}
